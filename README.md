@@ -5,3 +5,19 @@
 ## Some links
 https://adventofcode.com/
 
+See [reference].
+
+[reference]: /url "Title"
+
+
+Link to [[another-note]].
+
+
+
+```php
+<?php
+$hello = "sdsdsr"
+```
+
+
+[[another-note]]
