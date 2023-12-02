@@ -32,7 +32,4 @@ class Day1 implements TemplateDayInterface
         $last = end($digits);
         return (string) $first . (string) $last;
     }
-
-
-    public function
 }
