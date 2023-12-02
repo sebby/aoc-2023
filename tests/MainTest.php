@@ -4,75 +4,43 @@ declare(strict_types=1);
 
 namespace Test;
 
-use App\Main;
+use App\Day1;
 use PHPUnit\Framework\TestCase;
 
 class MainTest extends TestCase
 {
     /**
-     * @dataProvider dataProviderPuzzle1
+     * @dataProvider dataProviderDay1
      * @return       void
      */
     public function testPuzzle1($input, $expected)
     {
-        $this->assertEquals($expected, Main::puzzle1($input));
+        $d = new Day1();
+        $this->assertEquals($expected, $d->byLine($input));
     }
 
 
-    /**
-     * @return array[]
-     */
-    public static function dataProviderPuzzle1(): array
+    public static function dataProviderDay1(): array
     {
         return [
+          [
+            'sdsdd',
+            '',
+          ],
             [
-                '(())',
-                0,
+                '1abc2',
+                '12',
             ],
             [
-                '(((',
-                3,
+                'pqr3stu8vwx',
+                '38',
             ],
             [
-                '))(((((',
-                3,
-            ],
-            [
-                '())',
-                -1,
-            ],
-            [
-                ')))',
-                -3,
-            ],
-        ];
-    }
-
-
-    /**
-     * @dataProvider dataProviderPuzzle2
-     * @return       void
-     */
-    public function testPuzzle2($input, $expected)
-    {
-        $this->assertEquals($expected, Main::puzzle1($input, -1));
-    }
-
-
-    public static function dataProviderPuzzle2(): array
-    {
-        return [
-            [
-                '(',
-                1,
-            ],
-            [
-                '))))))))(',
-                8,
-            ],
-            [
-                '()())',
-                5,
+                'a1b2c3d4e5f',
+                '15',
+            ],[
+                'treb7uchet',
+                '77',
             ],
         ];
     }
