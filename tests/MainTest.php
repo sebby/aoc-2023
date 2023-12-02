@@ -10,13 +10,24 @@ use PHPUnit\Framework\TestCase;
 class MainTest extends TestCase
 {
     /**
-     * @dataProvider dataProviderDay1
+     * @var \App\Day1
+     */
+    private Day1 $d;
+
+    public function setUp(): void
+    {
+        $this->d = new Day1();
+    }
+    /**
+     * @dataProvider dataProviderDay1Step2
      * @return       void
      */
     public function testPuzzle1($input, $expected)
     {
-        $d = new Day1();
-        $this->assertEquals($expected, $d->byLine($input));
+        $this->assertEquals(
+            $expected,
+            $this->d->byLine($input)
+        );
     }
 
 
@@ -43,5 +54,48 @@ class MainTest extends TestCase
                 '77',
             ],
         ];
+    }
+
+    public static function dataProviderDay1Step2(): array
+    {
+        return [
+          [
+            'two1nine',
+            '29',
+          ],
+          [
+            'eightwothree',
+            '83',
+          ],
+          [
+            'abcone2threexyz',
+            '13',
+          ],
+          [
+            'xtwone3four',
+            '24',
+          ],[
+            '4nineeightseven2',
+            '42',
+          ],
+          [
+            'zoneight234',
+            '14',
+          ],
+          [
+            '7pqrstsixteen',
+            '76',
+          ],
+        ];
+    }
+
+
+
+    public function testFindDigits()
+    {
+       $this->assertSame('219', $this->d->replace('two1nine'));
+       $this->assertSame('823', $this->d->replace('eightwothree'));
+       $this->assertSame('219', $this->d->replace('two1nine'));
+       $this->assertSame('912', $this->d->replace('nine1two'));
     }
 }
