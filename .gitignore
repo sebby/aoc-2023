@@ -2,3 +2,4 @@ vendor
 composer.lock
 day01/input.txt
 .phpunit.result.cache
+.DS_Store
