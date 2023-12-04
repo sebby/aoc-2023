@@ -9,6 +9,7 @@ class Utils
     public static function readFile(string $input): array
     {
         $lines = [];
+        print_r($input);
         if (file_exists($input)) {
             $file = fopen($input, 'r');
             while (!feof($file)) {

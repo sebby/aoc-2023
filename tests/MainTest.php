@@ -93,9 +93,9 @@ class MainTest extends TestCase
 
     public function testFindDigits()
     {
-       $this->assertSame('219', $this->d->replace('two1nine'));
-       $this->assertSame('823', $this->d->replace('eightwothree'));
-       $this->assertSame('219', $this->d->replace('two1nine'));
-       $this->assertSame('912', $this->d->replace('nine1two'));
+        $this->assertSame('219', $this->d->replace('two1nine'));
+        $this->assertSame('823', $this->d->replace('eightwothree'));
+        $this->assertSame('219', $this->d->replace('two1nine'));
+        $this->assertSame('912', $this->d->replace('nine1two'));
     }
 }

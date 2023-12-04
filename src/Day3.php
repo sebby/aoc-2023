@@ -10,13 +10,14 @@ class Day3 implements TemplateDayInterface
 
     public function __construct()
     {
+        $this->points = [];
     }
 
     public function byLine(string $input): string
     {
         // on a 10 lignes par ligne.
         $line = str_split($input);
-        $this->points = [];
+
         $this->y++;
         foreach ($line as $x => $l) {
             $this->points[] = new Point($x, $this->y, $l);
@@ -26,14 +27,26 @@ class Day3 implements TemplateDayInterface
 
     public function step1(string $input): int
     {
+        $lines =  Utils::readFile($input);
+        foreach ($lines as $line) {
+            $this->byLine($line);
+        }
         return 0;
     }
-    public function findOneSymbol():string {
-        // @todo chercher les synbols dans la ligne
-        // @todo et avoir leur position.
-        return $this->points[0]->val;
-
-        return new Point(0,0,1);
+    public function findAllSymbols(): array
+    {
+        $symbols = [];
+        foreach ($this->points as $point) {
+            if ($point->type == Point::IS_SYMBOL) {
+                $symbols[] = $point;
+            }
+        }
+        return $symbols;
+    }
+    function getVoisins(Point $pt): array
+    {
+        print_r($pt);
+        return [];
     }
 }
 
@@ -42,10 +55,11 @@ class Point
     public const  IS_POINT = 'IS_POINT';
     public const IS_NUMBER = 'IS_NUMBER';
     public const IS_SYMBOL =  'IS_SYMBOL';
-    readonly public string $x;
-    readonly public string $y;
+    public string $x;
+    public string $y;
 
-    readonly public string $val;
+    public string $val;
+
     public string $type;
 
     public function __construct($x, $y, $val)

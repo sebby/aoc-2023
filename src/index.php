@@ -2,8 +2,11 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-$file = '../day01/input_step2.txt';
+$file = '../day03/input.txt';
 
 $input = \App\Utils::contentRaw($file);
-$tot = new \App\Day1();
-print_r($tot->step1($file));
+$main  = new \App\Day3();
+$main->step1($file);
+$symbols = $main->findAllSymbols();
+
+$main->getVoisins($symbols[0]);
