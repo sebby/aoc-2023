@@ -15,8 +15,8 @@ class Day3Test extends TestCase
     public function testMethod($input, $excepted)
     {
         $d  = new Day3();
-        $this->assertSame($excepted, $d->byLine($input));
-        $this->fail('sdsdsd');
+        $d->byLine($input);
+        $this->assertSame($excepted, $d->findOneSymbol());
 
         }
 
@@ -24,10 +24,10 @@ class Day3Test extends TestCase
     public static function dataProvider1()
     {
         return [
-        ['467..114..', '6digits'],
-        ['...*.......', '1symbols'],
-        ['467..114..', '6digits'],
-        ['467..114..', '6digits'],
+        ['467..114..', ''],
+        ['...*.......', '*'],
+        ['467..114..', ''],
+        ['467..114..', ''],
         ];
     }
 }

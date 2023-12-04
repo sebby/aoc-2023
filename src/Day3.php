@@ -4,6 +4,10 @@ namespace App;
 
 class Day3 implements TemplateDayInterface
 {
+    private array $points;
+
+    private int $y = 0;
+
     public function __construct()
     {
     }
@@ -12,19 +16,24 @@ class Day3 implements TemplateDayInterface
     {
         // on a 10 lignes par ligne.
         $line = str_split($input);
-        $points = [];
-        $y = 0;
+        $this->points = [];
+        $this->y++;
         foreach ($line as $x => $l) {
-            $points[] = new Point($x, $y, $l);
+            $this->points[] = new Point($x, $this->y, $l);
         }
-        print_r($points);
-        return (string) count_chars($input);
         return '';
     }
 
     public function step1(string $input): int
     {
         return 0;
+    }
+    public function findOneSymbol():string {
+        // @todo chercher les synbols dans la ligne
+        // @todo et avoir leur position.
+        return $this->points[0]->val;
+
+        return new Point(0,0,1);
     }
 }
 
